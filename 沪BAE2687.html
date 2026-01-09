@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<!-- saved from url=(0096)https://wyy.dhu.edu.cn/xwfksq.do?method=voucher&rowCode=2a6272db73374773aea53857f8be34b3&ljxbj=2 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>凭证</title>
+<meta content="all" name="robots">
+<meta name="author" content="作者信息">
+<meta name="Copyright" content="版权信息">
+<meta name="description" content="站点介绍">
+<meta name="keywords" content="站点关键词">
+<meta name="applicable-device" content="mobile">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<link type="text/css" rel="stylesheet" href="./凭证_files/font-awesome.min.css">
+<link rel="stylesheet" href="./凭证_files/style.css">
+<script src="./凭证_files/jquery.min.js"></script>
+<script src="./凭证_files/common.js"></script>
+<script type="text/javascript" src="./凭证_files/layer.js"></script><link href="./凭证_files/layer.css" type="text/css" rel="styleSheet" id="layermcss"> 
+<script src="./凭证_files/qrcode.js"></script>
+<style>
+
+        #scroller{
+            width: 80%; top: 100px;overflow:hidden;height: 280px;
+        }
+        #pullDown{
+            height: 30px;display: none;margin-top: 10px;text-align: center;
+        }
+        .h{
+            height: auto;display: flex;flex-direction: column;align-items: center;
+        }
+        .refresh{
+            margin: 20px auto 100px;
+        }
+       .tlt{
+    text-align: center;
+    font-size: 24px;
+    letter-spacing: 5px;
+    font-weight: 550;
+}
+.sxrycss{color: #ff0000; font-weight: 800;}
+</style>
+
+<style>
+  .imageye-selected {
+    outline: 2px solid black !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) !important;
+  }
+</style></head>
+<body style="">
+<form name="baseForm" method="post" action="https://wyy.dhu.edu.cn/index.do">
+<header class="font_14">
+        <div class="bill-header tlt">  进校凭证  
+        </div>
+    </header>
+    <div id="content" class=" qr_content_top mar_top01 font_12">
+        <div class="card">
+             <div class="topImg">
+                <div class="card_text"><img src="./凭证_files/card_text.png" alt=""></div>
+                <div class="card_logo"><img src="./凭证_files/card_logo.png" alt=""></div>
+            </div>
+            <div class="qr_info col_02   ">
+                   <ul class="qr_info_txt" style="width:95%;">
+                       <li class="font_20" style="">叶飞</li>
+                       <li> <span style="display: inline-block; " class="font_13 ">手机号码 ：</span> <span style="font-size:13px">15971493366</span> </li>
+                       <li> <span style="display: inline-block; " class="font_13 ">证件号码 ：</span> <span style="font-size:13px">420117*********714</span> </li>
+                       <li> <span style="display: inline-block; " class="font_13 ">进校日期 ：</span> <span style="font-size:13px" id="jxrq">2026-01-01</span></li>
+                       
+                   </ul>               
+            </div>
+            <div class="card_date">
+                &nbsp;
+            </div>  
+        </div>
+
+    </div> 
+
+    <div class=" qr_content_bottom font_12" style="background-color: rgb(255, 255, 255); border-radius: 5%; touch-action: none;" id="scroller">
+        <div class="h" style="transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);">
+            <div class="txCode" style="font-size:20px;text-align:center;line-height:30px;height:50px;margin-top:-20px;width:100%;">
+                <div>校外访客</div>
+                <span id="sj">2026-01-01 16:36:<font style="font-size:20px;font-weight: 550;">23</font></span>
+           </div>
+            <div style="margin-top:20px;">
+                
+                <div class="qrCode"  style="width:200px;height:200px;" title="2a6272db73374773aea53857f8be34b3"><img style="width:100%;" alt="Scan me!" src="./凭证_files/qr.jpg" style="display: block;"></div>
+                <div id="qrCode" style="display:none;"></div>
+            </div>
+
+           
+           <div class="bot" style="font-size:26px;text-align:center;line-height:30px;height:50px;margin-top:10px;width:100%;letter-spacing: 2px;">沪BAE2687
+           </div>
+        </div>
+    </div>
+    
+    <div id="smjl" class="qr_content_bottom" style="margin-top:10px;background-color:#fff;font-size:14px;border-radius:18px;display:none;padding-top:10px;padding-bottom: 10px;">
+               <div style="width:100%;height:30px;line-height:30px;" id="smsjDiv">扫码时间：</div>
+               <div style="width:100%;height:30px;line-height:30px;" id="smxmDiv">扫码校门：</div>
+    </div>
+    
+    <div id="tsxxs" style="display:none">
+       <div style="width:100%;height:60px;line-height:60px;color:#00cc00;font-size:60px;text-align:center;"><i class="icon-ok-sign"></i></div>
+       <div style="width:100%;height:50px;line-height:50px;font-size:20px;text-align: center;letter-spacing: 2px;color:#888;padding-left:15px;">进校扫码成功！</div>
+    </div>
+    
+
+<script>
+var qrcode;
+var cphm = "沪BAE2687";
+$(function(){
+var pzyslx = "#66cc33";
+//if(cphm != "" || cphm.length > 5) pzyslx = "#ff0000";
+qrcode = new QRCode('qrCode', {
+  text: '2a6272db73374773aea53857f8be34b3',
+  width: 200,
+  height: 200,
+  colorDark : pzyslx,
+  colorLight : '#ffffff',
+  correctLevel : QRCode.CorrectLevel.H
+});
+})
+var zs = 1;
+var pzys = "";
+var ewmbh = "2a6272db73374773aea53857f8be34b3";
+function getSmjg(){
+   $.ajax({
+      type: "POST",
+      url:  "getCommon.do?method=getPzsfys&bh="+ewmbh,
+      success: function(data){
+         //console.log(data);
+         var jdata = JSON.parse(data);
+         if(jdata.code == "0"){
+            if(zs < 100) setTimeout("getSmjg()", 2000);
+            zs++;
+         }else{
+            $("#smsjDiv").html("扫码时间："+jdata.smsj);
+            $("#smxmDiv").html("扫码校门："+jdata.xmmc);
+            layer.open({content:$("#tsxxs").html(),btn:'确定'});
+            $("#jzsj").html("码扫过已失效");
+            $("#jzsj").css({"color":"#ff0000"});
+            $("#smjl").show(); 
+            qrcode.clear(); 
+            qrcode._htOption.colorDark = "#ddd";
+            qrcode.makeCode(ewmbh);   
+         }
+      }
+   });
+}
+
+$(function(){
+   if(pzys == "1"){ 
+      $("#jzsj").html("码扫过已失效");
+      $("#jzsj").css({"color":"#ff0000"});
+      $("#smjl").show(); 
+      qrcode.clear(); 
+      qrcode._htOption.colorDark = "#ddd";
+      qrcode.makeCode(ewmbh);   
+    }else{
+      getSmjg();
+    }
+   var sjobj = $("#sj");
+   var jxrqobj = $("#jxrq");
+   setInterval(function(){sjobj.html(showtime());}, 1000);
+   setInterval(function(){jxrqobj.html(getDate());}, 1000);
+})
+
+function showtime() {
+    var date = new Date();
+    var y = date.getFullYear();
+    var m = date.getMonth() + 1;
+    m = m < 10 ? ('0' + m) : m;
+    var d = date.getDate();
+    d = d < 10 ? ('0' + d) : d;
+    var h = date.getHours();
+    h = h < 10 ? ('0' + h) : h;
+    var mi = date.getMinutes();
+    mi = mi < 10 ? ('0' + mi) : mi;
+    var s = date.getSeconds();
+    s = s < 10 ? ('0' + s) : s;
+    return (y + "-" + m + "-" + d + " " + h + ":" + mi + ":<font style='font-size:20px;font-weight: 550;'>" + s + "</font>");
+}
+
+function getDate() {
+    var date = new Date();
+    var y = date.getFullYear();
+    var m = date.getMonth() + 1;
+    m = m < 10 ? ('0' + m) : m;
+    var d = date.getDate();
+    d = d < 10 ? ('0' + d) : d;
+    return (y + "-" + m + "-" + d);
+}
+</script>
+
+<script>
+
+</script>
+</form>
+
+
+
+</body></html>
